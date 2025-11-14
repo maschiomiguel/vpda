@@ -1,0 +1,24 @@
+// Altera a cor padrão do tema do swiper pra cor primaria do projeto
+:root {
+    --swiper-theme-color: #{$primary};
+    --color_a: red;
+}
+
+// Caso seja necessário customizar as arrows do swiper
+.swiper-button-prev,
+.swiper-button-next {
+    &::after {
+        font-size: linear-clamp(32px, 42px, 320px, 1920px);
+    }
+}
+
+@include media-breakpoint-up(xxl) {
+}
+@include media-breakpoint-up(xl) {
+}
+@include media-breakpoint-up(lg) {
+}
+@include media-breakpoint-up(md) {
+}
+@include media-breakpoint-up(sm) {
+}

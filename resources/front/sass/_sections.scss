@@ -1,0 +1,54 @@
+// Projects swiper effect
+.swiper-projects {
+  .swiper-wrapper {
+    align-items: center;
+  }
+
+  .swiper-slide {
+    width: 320px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    // opacity: 0.5;
+    transform: scale(0.8);
+  }
+
+  .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+  }
+
+  .swiper-pagination {
+    .swiper-pagination-bullet {
+      background-color: $dark;
+    }
+  }
+
+  .number {
+    font-weight: 700;
+    top: -75%;
+    left: 2rem;
+    font-size: 40px;
+
+    @media(min-width: 992px) {
+      @include linear-rfs(80px, 150px, 375px, 1920px, "font-size");
+      position: absolute;
+    }
+  }
+
+  .content {
+    position: relative;
+    border-radius: 0 0 20px 20px;
+    margin-top: -1rem;
+  }
+}
+
+.btn {
+  font-size: 16px !important;
+  padding: 0.5rem 1rem !important;
+}
+
+.pagination-white {
+  .swiper-pagination-bullet {
+    background-color: $white !important;
+  }
+}

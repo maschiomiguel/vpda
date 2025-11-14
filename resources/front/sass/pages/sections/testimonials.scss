@@ -1,0 +1,289 @@
+.testimonials-section {
+
+    .text-gray-blue {
+        color: $gray-blue;
+    }
+
+    .testimonial-title {
+        font-size: 2.5rem;
+        @include media-breakpoint-up(xxl) {
+            font-size: 3rem;
+        }
+    }
+
+    .call-text {
+        font-weight: 700;
+        font-size: 1.4rem;
+        @include media-breakpoint-up(xxl) {
+            font-size: 2rem;
+        }
+    }
+
+    .swiper-testimonials {
+        overflow: initial !important;
+        margin-top: 1rem;
+
+        @media(max-width: 992px) {
+            margin-top: 4rem !important;
+
+
+            h4.editor-texto {
+                font-size: 20px !important;
+            }
+        }
+
+        @media(min-width: 992px) {
+            margin-top: 6rem !important;
+        }
+    }
+
+    .swiper-slide {
+        transition: transform 0.3s ease;
+
+        * {
+            scale: 0.8;
+            transition: scale 0.3s ease;
+
+            img {
+                scale: 1.8;
+            }
+
+            @include media-breakpoint-down(lg) {
+                scale: 1;
+
+                img {
+                    scale: 1;
+                }
+            }
+        }
+
+        // Card central ativo (maior)
+        &-active {
+            * {
+                scale: 1;
+
+                @include media-breakpoint-down(lg) {
+                    scale: 1;
+                }
+            }
+
+            img {
+                scale: 1.4;
+
+                @include media-breakpoint-down(lg) {
+                    scale: 1;
+                }
+            }
+
+            // Ajustes específicos para o card central no desktop
+            @include media-breakpoint-up(lg) {
+                .testimony-card {
+                    h4 {
+                        font-size: 1.1rem !important;
+                        line-height: 1.3;
+                    }
+
+                    h3 {
+                        font-size: 1.1rem !important;
+                    }
+
+                    .h6 {
+                        font-size: 0.9rem !important;
+                    }
+
+                    .max-w-icon {
+                        max-width: 180px;
+                        top: -30px;
+                    }
+
+                    svg {
+                        width: 28px;
+                        height: 28px;
+                    }
+                }
+            }
+        }
+
+        // Cards laterais (menores)
+        &-next,
+        &-prev {
+            * {
+                scale: 0.8;
+
+                @include media-breakpoint-down(lg) {
+                    scale: 1;
+                }
+            }
+
+            img {
+                scale: 1.8;
+
+                @include media-breakpoint-down(lg) {
+                    scale: 1;
+                }
+            }
+        }
+    }
+
+    // Quando há menos de 3 depoimentos, remove o efeito de escala
+    .testimonials-few {
+        @include media-breakpoint-up(lg) {
+            .swiper-slide {
+                display: flex;
+                justify-content: center;
+
+                * {
+                    scale: 1 !important;
+
+                    img {
+                        scale: 1.2 !important;
+                    }
+                }
+
+                &-active,
+                &-next,
+                &-prev {
+                    * {
+                        scale: 1 !important;
+
+                        img {
+                            scale: 1 !important;
+                        }
+                    }
+                }
+            }
+
+            .swiper-wrapper {
+                justify-content: center;
+                gap: 40px;
+            }
+
+            .testimony-card {
+                max-width: 550px;
+            }
+        }
+
+        @include media-breakpoint-up(xxl) {
+            .swiper-slide {
+            img {
+
+                    scale: 1.7 !important;
+                }
+            }
+        }
+    }
+
+    .testimony-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        color: white;
+        gap: 0.5rem;
+        border-radius: 2rem;
+        margin-top: 2rem;
+
+        @include media-breakpoint-down(lg) {
+            padding: 1rem 0.75rem 1.25rem 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        @include media-breakpoint-down(md) {
+            padding: 1rem 0.75rem 1.25rem 0.75rem;
+            margin-top: 1rem;
+            border-radius: 1.25rem;
+        }
+
+        h4 {
+            @include linear-rfs(1rem, 1.25rem, lg, xxl);
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+
+            @include media-breakpoint-down(md) {
+                font-size: 0.95rem !important;
+                line-height: 1.3;
+            }
+        }
+
+        // Nome da pessoa
+        h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+
+            @include media-breakpoint-down(md) {
+                font-size: 1rem;
+            }
+        }
+
+        // Função/cargo
+        .h6 {
+            font-size: 0.95rem;
+
+            @include media-breakpoint-down(md) {
+                font-size: 0.9rem;
+            }
+        }
+
+        // Estrelas
+        svg {
+            width: 26px;
+            height: 26px;
+
+            @include media-breakpoint-down(md) {
+                width: 22px;
+                height: 22px;
+            }
+        }
+
+        // Espaçamento entre estrelas menor
+        .d-flex.gap-1 {
+            gap: 0.25rem !important;
+            margin-top: 1rem !important;
+            margin-bottom: 1rem !important;
+        }
+
+
+
+        .ratio img {
+            border: 2px solid $primary;
+            background-color: $primary;
+            box-shadow: 0.15rem 0.15rem 0.25rem 0 rgba(0, 0, 0, 0.4);
+        }
+
+        .max-w-icon {
+            max-width: 180px;
+            margin: auto;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+
+            @include media-breakpoint-down(lg) {
+                max-width: 110px;
+                top: -22px;
+            }
+
+            @include media-breakpoint-down(md) {
+                max-width: 100px;
+                top: -20px;
+            }
+
+            img {
+                border: 8px solid white;
+                border-radius: 50%;
+                box-shadow: none;
+
+                @include media-breakpoint-down(lg) {
+                    border: 6px solid white;
+                }
+
+                @include media-breakpoint-down(md) {
+                    border: 4px solid white;
+                }
+            }
+        }
+    }
+}

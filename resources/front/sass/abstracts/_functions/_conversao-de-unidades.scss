@@ -1,0 +1,43 @@
+// Remove unidades
+@function removeUnits($value) { 
+    @return math.div($value, ($value * 0 + 1));
+
+}
+
+// Arredonda valor para 2 casas decimais
+@function roundValue($value) { 
+    @return math.div(round($value * 1000), 1000);
+}
+
+// Converte px para valor relativo em rem
+@function convertPxToRem($size) {
+    @return roundValue(math.div(removeUnits($size), 16)) * 1rem;
+}
+
+// Converte px para valor relativo em vw
+@function convertPxToVw($size, $viewportWidth: 1920) {
+
+    @return roundValue(math.div(removeUnits($size), math.div(removeUnits($viewportWidth), 100))) * 1vw;
+}
+
+
+// Converte rem para valor relativo em px
+@function convertRemToPx($size) {
+    @return roundValue(removeUnits($size) * 16) * 1px;
+}
+
+// Converte rem para valor relativo em vw
+@function convertRemToVw($size, $viewportWidth:1920) {
+    @return roundValue( math.div(removeUnits(convertRemToPx($size)), math.div(removeUnits($viewportWidth,) 100 )) ) * 1vw;
+}
+
+// Converte vw para valor relativo em px
+@function convertVwToPx($size, $viewportWidth:1920) {
+    @return roundValue(removeUnits($size) * math.div(removeUnits($viewportWidth,) 100)) * 1px;
+}
+
+// Converte vw para valor relativo em rem
+@function convertVwToRem($size, $viewportWidth:1920) {
+    $valueInPixels: removeUnits(convertVwToPx($size, $viewportWidth));
+    @return roundValue(convertPxToRem($valueInPixels));
+}

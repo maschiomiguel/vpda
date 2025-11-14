@@ -1,0 +1,140 @@
+.editor-texto {
+
+    p,
+    span,
+    ul,
+    ol,
+    li,
+    a {
+        color: $body-color;
+        font-weight: 400;
+        line-height: 1.25;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: 1.5em;
+        margin-bottom: 1em;
+        color: $secondary;
+    }
+
+    li+li {
+        margin-top: 0.1em;
+    }
+
+    a {
+        font-weight: 500;
+
+        @include media-hover {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    b {
+        font-weight: 600;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0.5em;
+
+        li::before {
+            content: "•";
+            font-weight: 400;
+            color: $secondary;
+            font-size: 0.6em;
+            margin-right: 0.75em;
+        }
+    }
+
+    ol {
+        list-style: decimal;
+        list-style-position: inside;
+        padding-left: 0.5em;
+
+        li::marker {
+            color: $secondary;
+        }
+    }
+
+    *:first-child {
+        margin-top: 0;
+    }
+
+    *:last-child {
+        margin-bottom: 0;
+    }
+
+    blockquote {
+        padding: 1em;
+        margin-left: -1em;
+        border-left: 2px solid $secondary;
+
+        &,
+        * {
+            color: $gray-600;
+        }
+    }
+
+    &-light {
+
+        p,
+        span,
+        ul,
+        ol,
+        li,
+        a {
+            color: $light;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: $primary;
+        }
+
+        ul {
+            li::before {
+                color: $primary;
+            }
+        }
+
+        ol {
+            li::marker {
+                color: $primary;
+            }
+        }
+
+        blockquote {
+            border-left: 2px solid $primary;
+
+            &,
+            * {
+                color: $gray-600;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(xxl) {}
+
+@include media-breakpoint-up(xl) {}
+
+@include media-breakpoint-up(lg) {}
+
+@include media-breakpoint-up(md) {}
+
+@include media-breakpoint-up(sm) {}
+
+strong {
+    font-weight: bold !important;
+}

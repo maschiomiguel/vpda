@@ -1,0 +1,72 @@
+#company-section {
+    background: linear-gradient(180deg, #F8F9FA 0%, #FFFFFF 100%);
+    padding: 5rem 0;
+
+    .section-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        color: #212529;
+
+        @include media-breakpoint-up(lg) {
+            font-size: 3rem;
+        }
+
+        @include media-breakpoint-up(xl) {
+            font-size: 3.5rem;
+        }
+    }
+
+    .section-subtitle {
+        font-size: 1.125rem;
+        color: #6c757d;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .numbers-up {
+        .countup-item {
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+
+            .countup-number {
+                .number-value,
+                .number-suffix {
+                    font-size: 3.5rem;
+                    font-weight: 700;
+                    color: $primary;
+                    line-height: 1;
+
+                    @include media-breakpoint-up(lg) {
+                        font-size: 4rem;
+                    }
+
+                    @include media-breakpoint-up(xl) {
+                        font-size: 4.5rem;
+                    }
+                }
+            }
+
+            .countup-label {
+                .label-main {
+                    font-size: 1.125rem;
+                    font-weight: 600;
+                    color: #212529;
+                    margin-bottom: 0.25rem;
+
+                    @include media-breakpoint-up(lg) {
+                        font-size: 1.25rem;
+                    }
+                }
+
+                .label-sub {
+                    font-size: 0.95rem;
+                    color: #6c757d;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,75 @@
+@function linear-clamp($min-font, $max-font, $min-width, $max-width) {
+    
+    @if(is-string($min-width)) {
+        $min-width: gb($min-width);
+        @if not ($min-width) {
+            @warn "Breakpoint mínimo inválido enviado para a função.";
+            @return false;
+        }
+    }
+    
+    @if(is-string($max-width)) {
+        $max-width: gb($max-width);
+        @if not ($max-width) {
+            @warn "Breakpoint máximo inválido enviado para a função.";
+            @return false;
+        }
+    }
+    
+    @if(is-px($min-font)) {
+        $min-font: convertPxToRem($min-font);
+    } @else if(not is-rem($min-font)) {
+        @error "*Unidade inválida precisa ser PX ou REM";
+    }
+    @if(is-px($max-font)) {
+        $max-font: convertPxToRem($max-font);
+    } @else if(not is-rem($max-font)) {
+        @error "*Unidade inválida precisa ser PX ou REM";
+    }
+
+    $min-width: convertPxToRem($min-width);
+    $max-width: convertPxToRem($max-width);
+
+    $slope: math.div(($max-font - $min-font) , ($max-width - $min-width));
+    $yAxisIntersection: -$min-width * $slope + $min-font;
+
+    @return clamp($min-font, $yAxisIntersection + ($slope * 100vw), $max-font);
+}
+
+@function linear-calc($min-font, $max-font, $min-width, $max-width) {
+    @if(is-string($min-width)) {
+        $min-width: gb($min-width);
+        @if not ($min-width) {
+            @warn "Breakpoint mínimo inválido enviado para a função.";
+            @return false;
+        }
+    }
+    
+    @if(is-string($max-width)) {
+        $max-width: gb($max-width);
+        @if not ($max-width) {
+            @warn "Breakpoint máximo inválido enviado para a função.";
+            @return false;
+        }
+    }
+
+    @if(is-px($min-font)) {
+        $min-font: convertPxToRem($min-font);
+    } @else if(not is-rem($min-font)) {
+        @error "*Unidade inválida precisa ser PX ou REM";
+    }
+    
+    @if(is-px($max-font)) {
+        $max-font: convertPxToRem($max-font);
+    } @else if(not is-rem($max-font)) {
+        @error "*Unidade inválida precisa ser PX ou REM";
+    }
+
+    $min-width: convertPxToRem($min-width);
+    $max-width: convertPxToRem($max-width);
+
+    $slope: math.div(($max-font - $min-font) , ($max-width - $min-width));
+    $yAxisIntersection: -$min-width * $slope + $min-font;
+
+    @return calc($yAxisIntersection + ($slope * 100vw));
+}

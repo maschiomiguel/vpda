@@ -1,0 +1,32 @@
+{
+  "resources/front/js/main.js": {
+    "file": "assets/main-ac76ab98.js",
+    "isEntry": true,
+    "src": "resources/front/js/main.js"
+  },
+  "resources/front/js/vendors/bootstrap.bundle.min.js": {
+    "file": "assets/bootstrap.bundle.min-7ff93d50.js",
+    "isEntry": true,
+    "src": "resources/front/js/vendors/bootstrap.bundle.min.js"
+  },
+  "resources/front/sass/main.scss": {
+    "file": "assets/main-7a62eaa7.css",
+    "isEntry": true,
+    "src": "resources/front/sass/main.scss"
+  },
+  "resources/front/sass/vendors/bootstrap/bootstrap.scss": {
+    "file": "assets/bootstrap-cc2f3a40.css",
+    "isEntry": true,
+    "src": "resources/front/sass/vendors/bootstrap/bootstrap.scss"
+  },
+  "resources/restrita/js/dashboard.js": {
+    "file": "assets/dashboard-51cac052.js",
+    "isEntry": true,
+    "src": "resources/restrita/js/dashboard.js"
+  },
+  "resources/restrita/sass/main.scss": {
+    "file": "assets/main-38763ab7.css",
+    "isEntry": true,
+    "src": "resources/restrita/sass/main.scss"
+  }
+}

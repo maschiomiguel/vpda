@@ -1,0 +1,150 @@
+.solution-section {
+    &:nth-child(even) {
+        background-color: $light;
+
+        .row {
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+
+        .differential-icon {
+            img {
+                filter: contrast(0.5) brightness(1000);
+                max-width: 80px;
+                max-height: 80px;
+            }
+        }
+    }
+
+    &:nth-child(odd) {
+        background-color: white;
+
+        .differential-icon {
+            img {
+                max-width: 80px;
+                max-height: 80px;
+            }
+        }
+    }
+
+    .swiper-gallery {
+        border-radius: 2.5rem 0 2.5rem 0;
+        box-shadow: 0.25rem 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .solution-content {
+        .solution-title {
+            font-size: 2.3rem;
+            font-weight: 800;
+            background: linear-gradient(to right, $tertiary, $quaternary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: normal;
+            text-transform: none;
+
+            @include media-breakpoint-up(xxl) {
+                font-size: 3rem;
+            }
+        }
+
+        .solution-slogan {
+            margin-bottom: 2rem !important;
+
+            &,
+            * {
+                font-size: 2rem;
+
+                @include media-breakpoint-up(xxl) {
+                    font-size: 3rem;
+                }
+
+                font-weight: bold;
+                margin-bottom: 0;
+                line-height: 1;
+            }
+        }
+
+        .solution-description {
+            font-size: 1rem !important;
+            @include linear-rfs(1rem, 1.35rem, lg, xxl);
+            line-height: 22px;
+            margin-bottom: 2rem;
+            @include media-breakpoint-up(xxl) {
+                font-size: 1.2rem !important;
+            }
+        }
+    }
+
+    .differential-icon {
+        width: 75px;
+    }
+
+    .differential-title {
+        font-weight: 800;
+        @include linear-rfs(1rem, 1.5rem, lg, xxl);
+        max-width: 60%;
+        color: black;
+    }
+
+    .differential-description {
+        @include linear-rfs(1rem, 1.2rem, lg, xxl);
+        max-width: 90%;
+        color: #898989;
+        font-weight: 700;
+    }
+}
+
+[data-autoscroll-down] {
+    max-height: 400px;
+    overflow: hidden;
+}
+
+@include media-breakpoint-down(lg) {
+    [data-autoscroll-down] {
+        max-height: 240px;
+    }
+}
+
+[data-autoscroll-down] img {
+    pointer-events: none;
+}
+
+.solution-section,
+.differentials {
+    position: relative;
+
+    &::after {
+        content: '';
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        width: 82%;
+        height: 6px;
+        border-radius: 25px;
+        // background: linear-gradient(135deg, #e61e25 0%, #00a24b 50%, #19437c 100%);
+    }
+
+    .rounded-pill {
+        background: #BDB1B1;
+    }
+}
+
+.btn-solution {
+    background: linear-gradient(to right, $tertiary, $secondary);
+    border: none !important;
+    border-radius: 100px;
+    color: white !important;
+    font-weight: 500;
+    padding: 0.3rem 1.5rem;
+    transition: all 0.3s ease;
+    min-width: 280px;
+
+    &:hover {
+        background: linear-gradient(to right, darken($tertiary, 10%), darken($secondary, 10%));
+        transform: translateY(-2px);
+    }
+}

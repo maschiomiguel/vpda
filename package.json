@@ -1,0 +1,26 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "watch": "vite build --watch",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "axios": "^1.1.2",
+        "laravel-vite-plugin": "^0.7.2",
+        "lodash": "^4.17.19",
+        "postcss": "^8.1.14",
+        "sass": "^1.59.3",
+        "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "@hotwired/stimulus": "^3.2.1",
+        "@hotwired/stimulus-webpack-helpers": "^1.0.1",
+        "@hotwired/turbo": "^7.3.0",
+        "compressorjs": "^1.2.1",
+        "dropzone": "^6.0.0-beta.2",
+        "jquery": "^3.6.3",
+        "jquery-mask-plugin": "^1.14.16",
+        "sortablejs": "^1.15.0"
+    }
+}

@@ -1,0 +1,29 @@
+.btn-primary {
+	color: $white !important;
+	&:hover {
+		background-color: darken($primary, 10);
+		border-color: darken($primary, 10);
+	}
+}
+
+.btn-secondary {
+	&:hover {
+		background-color: lighten($secondary, 18);
+		border-color: lighten($secondary, 18);
+	}
+}
+
+.img-fluid {
+	object-fit: cover;
+}
+
+@include media-breakpoint-up(xxl) {
+}
+@include media-breakpoint-up(xl) {
+}
+@include media-breakpoint-up(lg) {
+}
+@include media-breakpoint-up(md) {
+}
+@include media-breakpoint-up(sm) {
+}

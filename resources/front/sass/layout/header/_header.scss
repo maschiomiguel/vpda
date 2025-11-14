@@ -1,0 +1,81 @@
+.header {
+    z-index: $zindex-header;
+
+    &-logo {
+        @include linear-rfs(10rem, 13rem, 375px, 1920px, "width");
+
+        .downscale-logo {
+            transform: scale(0.8);
+        }
+
+        @include media-breakpoint-down(lg) {
+            @include linear-rfs(8rem, 8rem, 375px, 1920px, "width");
+
+        }
+    }
+
+    .menu-bars {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    @include media-breakpoint-down(lg) {
+        #offcanvasHeader {
+            @include media-breakpoint-down(lg) {
+                background: linear-gradient(to bottom, $secondary 20%, rgba(black, 0.3) 100%);
+            }
+
+            .absolute-offcanvas-btn {
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .header-logo {
+                width: 12rem;
+                margin-top: 2rem;
+
+                .downscale-logo {
+                    transform: scale(0.8);
+                }
+            }
+
+            .offcanvas-link {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .menu {
+        a {
+            color: white;
+            // font-size: 1.25rem;
+            font-weight: 600;
+            font-size: 15px;
+            border-radius: $border-radius-sm;
+            display: block;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                width: 100%;
+                height: 3px;
+                background-color: $primary;
+                transition: $transition-base;
+            }
+
+            @include media-breakpoint-up(lg) {
+                &:hover::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.offcanvas-link {
+    cursor: pointer;
+}

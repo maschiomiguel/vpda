@@ -1,0 +1,19 @@
+ul.pagination {
+    gap: 1rem;
+
+    .page-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 50% !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: $primary 1px solid;
+        transition: $transition-base;
+
+        @include media-hover{
+            background-color: $primary;
+            color: white;
+        }
+    }
+}

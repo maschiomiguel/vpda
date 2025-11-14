@@ -1,0 +1,22 @@
+.btn {
+    border-radius: 0.3rem !important;
+}
+
+.layout,
+.command-bar {
+    .btn-success:hover {
+        color: white !important;
+    }
+}
+
+.btn-success {
+    background-color: $primary !important;
+    border: none;
+    &:hover,
+    &:not([disabled]):not(.disabled):active {
+        background-color: darken($primary, 15) !important;
+    }
+    &:focus {
+        background-color: darken($primary, 5) !important;
+    }
+}

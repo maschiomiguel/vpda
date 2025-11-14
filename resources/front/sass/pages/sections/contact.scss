@@ -1,0 +1,266 @@
+.contact-section {
+    .form-section {
+        border-radius: 8px;
+        // Removido o background para evitar sobreposição com o blur
+    }
+
+    .form-blur-container {
+        padding: 1.4rem 1.6rem !important;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border-radius: 12px;
+        border: solid 3px white;
+
+
+        flex-direction: column;
+        gap: .6rem;
+
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: white !important;
+            text-shadow: 2px 2px 4px $secondary;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .3px;
+            line-height: 1.1;
+            font-size: clamp(1.1rem, 1.2vw + .65rem, 1.2rem);
+        }
+
+        input:not([type="checkbox"]),
+        textarea,
+        select {
+            width: 100%;
+            background: $secondary !important;
+
+            border: 1px solid rgba(255, 255, 255, .95) !important;
+            color: white !important;
+            border-radius: 12px;
+
+            padding: .5rem .9rem;
+
+            margin: 0 0 .35rem 0;
+            font-size: clamp(.94rem, .8vw + .5rem, .8rem);
+            // Fonte herdada da configuração padrão (Urbanist)
+
+            box-shadow: none;
+            transition: border-color .2s, background-color .2s, box-shadow .2s;
+            text-align: start;
+
+            &::placeholder {
+                color: white !important;
+                opacity: .85;
+            }
+
+            &:focus {
+                background: transparent !important;
+                border-color: $white !important;
+                outline: 0;
+                box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+                color: #fff !important;
+            }
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            padding-right: 2.2rem;
+            background-image: url('data:image/svg+xml;utf8,\
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="white">\
+        <path d="M7.41 8.58 12 13.17l4.59-4.59L18 10l-6 6-6-6z"/>\
+      </svg>');
+            background-repeat: no-repeat;
+            background-position: right .75rem center;
+
+            &:focus {
+                border-color: $white !important;
+                box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+            }
+
+            option {
+                background-color: $secondary;
+                color: white;
+            }
+        }
+
+        .form-check {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-check-label,
+        label,
+        p,
+        strong {
+            color: white !important;
+            line-height: 1.25;
+            font-size: clamp(.84rem, .7vw + .42rem, .84rem);
+        }
+
+        span {
+            color: $secondary !important;
+            line-height: 1.25;
+            font-size: clamp(.84rem, .7vw + .42rem, .84rem);
+
+        }
+
+        .form-check-input {
+            &:checked {
+                background-color: $secondary !important;
+                border-color: $secondary !important;
+            }
+
+            &:focus {
+                border-color: $secondary;
+                box-shadow: 0 0 0 0.25rem rgba($secondary, 0.25);
+            }
+        }
+
+
+        @media (min-width: 1200px) and (max-width: 1499px) {
+            width: clamp(380px, 36vw, 500px);
+            padding: 1.2rem 1.2rem !important;
+            gap: 0 !important;
+
+            input:not([type="checkbox"]),
+            textarea,
+            select {
+                padding: .5rem .85rem;
+                margin-bottom: .3rem;
+            }
+
+            textarea {
+                min-height: 60px;
+            }
+        }
+
+        @media (min-width: 992px) and (max-width: 1199px) {
+            width: clamp(360px, 38vw, 480px);
+            padding: 1.15rem 1.1rem !important;
+        }
+
+        @media (min-width: 1500px) and (max-width: 1919px) {
+            width: clamp(480px, 32vw, 620px);
+
+            textarea {
+                min-height: 120px;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            width: clamp(520px, 30vw, 700px);
+        }
+    }
+
+    form {
+        padding: 0px !important;
+
+        .flash-messages-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            pointer-events: none;
+
+            .col-lg-12 {
+                padding: 0 !important;
+                scale: 1 1.1;
+
+                .alert {
+                    margin: 0;
+                    border-radius: 10rem;
+                }
+            }
+        }
+    }
+
+    .btn-form {
+        display: flex;
+        gap: 1.5rem;
+        background: white !important;
+        border: none !important;
+        border-radius: 100px;
+        color: $secondary !important;
+        font-weight: 500;
+        padding: 0.3rem .8rem;
+        transition: all 0.3s ease;
+        position: relative;
+
+        // Estilo para o span que contém texto + ícone
+        .d-flex {
+            position: relative;
+
+            // Borda vertical entre texto e ícone
+            &::after {
+                content: '';
+                position: absolute;
+                right: -1rem; // 20px (largura SVG) + 6px (metade do gap-2)
+                top: 50%;
+                transform: translateY(-50%);
+                width: 2px;
+                height: 18px; // Altura fixa para melhor controle
+                background-color: $secondary !important;
+            }
+        }
+
+        &:active,
+        &:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #fff;
+            color: #fff;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
+        }
+
+        &:disabled {
+            background: transparent;
+            border-color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.5);
+            cursor: not-allowed;
+
+            .d-flex::after {
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        @include media-hover {
+            &:hover {
+                background: $secondary !important;
+                // border-color: white !important;
+                color: white !important;
+
+                svg {
+                    path {
+                        fill: white !important;
+                    }
+                }
+
+                .d-flex {
+                    color: white !important;
+
+                    &::after {
+                        background-color: white !important;
+                    }
+                }
+
+                span {
+                    color: white !important;
+                }
+            }
+        }
+    }
+}

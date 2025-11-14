@@ -1,0 +1,110 @@
+import $ from "jquery";
+
+export default class extends window.Controller {
+    /**
+     *
+     */
+    connect() {
+        const selector = this.element.querySelector(".tinymce").id;
+        const input = this.element.querySelector("input");
+
+        let plugins = [
+            'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+            'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code', 'fullscreen', 'insertdatetime',
+            'media', 'table', 'emoticons', 'template', 'help'
+        ];
+        let toolbar =
+        "undo redo |h2 h3 bold italic strikethrough forecolor backcolor | link image media | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | removeformat | ltr rtl";
+
+        // remove cache
+        tinymce.remove(`#${selector}`);
+
+        let config = {
+            branding: false,
+            selector: `#${selector}`,
+            theme: this.element.dataset.theme,
+            language: this.element.dataset.language,
+            min_height: 250,
+            height: this.element.dataset.height,
+            max_height: 800,
+            plugins,
+            toolbar,
+            browser_spellcheck: true,
+            menubar: "format table tools",
+            menu: {
+                format: { title: 'Formatação', items: 'bold italic underline strikethrough superscript subscript codeformat | fontfamily fontsize align lineheight | forecolor backcolor | removeformat' },
+                table: { title: 'Tabela', items: 'inserttable | cell row column | advtablesort | tableprops deletetable' },
+                tools: { title: 'Ferramentas', items: ' a11ycheck wordcount | fullscreen preview' },
+            },
+            insert_toolbar: "table",
+            convert_urls: false,
+            block_unsupported_drop: true,
+            image_advtab: true,
+            image_caption: false,
+            image_title: true,
+            images_file_types: 'none',
+            image_class_list: [
+                {
+                    title: "None",
+                    value: "",
+                },
+                {
+                    title: "Responsive",
+                    value: "img-fluid",
+                },
+            ],
+            setup: (element) => {
+                element.on("BeforeSetContent", function (e) {
+                    if (e.content.startsWith("<table")) {
+                        e.content =
+                            '<div class="table-responsive">' +
+                            e.content +
+                            "</div>";
+                    }
+                });
+                element.on("change", () => {
+                    $(input).val(element.getContent());
+                });
+            },
+            promotion: false,
+        };
+
+        tinymce.init(config);
+        
+    }
+
+    /**
+     *
+     * @param blobInfo
+     * @param success
+     */
+    upload(blobInfo, success) {
+        const data = new FormData();
+        data.append("file", blobInfo.blob());
+
+        let prefix = function (path) {
+            let prefix = document.head.querySelector(
+                'meta[name="dashboard-prefix"]'
+            );
+            // Remove double slashes from url
+            let pathname = `${prefix.content}${path}`.replace(/\/\/+/g, "/");
+            return `${location.protocol}//${location.hostname}${
+                location.port ? `:${location.port}` : ""
+            }${pathname}`;
+        };
+
+        axios
+            .post(prefix("/systems/files"), data)
+            .then((response) => {
+                success(response.data.url);
+            })
+            .catch((error) => {
+                alert("Validation error : File upload error");
+                console.warn(error);
+            });
+    }
+
+    disconnect() {
+        tinymce.remove(`#${this.element.querySelector(".tinymce").id}`);
+    }
+}

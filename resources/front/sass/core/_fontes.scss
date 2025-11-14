@@ -1,0 +1,47 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("#{$path_prefix}Montserrat-regular%20trial.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("#{$path_prefix}Montserrat-Thin%20Trial.ttf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("#{$path_prefix}Montserrat-Light%20Trial.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("#{$path_prefix}Montserrat-Bold%20Trial.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("#{$path_prefix}Montserrat-ExtraBold%20Trial.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("#{$path_prefix}Montserrat-Black%20Trial.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}

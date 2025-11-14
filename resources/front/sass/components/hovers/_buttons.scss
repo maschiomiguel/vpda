@@ -1,0 +1,24 @@
+// @media (hover: hover) {
+//     @each $theme-color-hover, $map-of-properties in $theme-colors-hover {
+//         $prefix: if(map.get($map-of-properties, prefix), map.get($map-of-properties, prefix), null);
+//         $important: if(map.get($map-of-properties, important), "!important", null);
+//         $suffix: if(map.get($map-of-properties, suffix), map.get($map-of-properties, suffix), "\\\:hover");
+        
+//         .#{$prefix}#{$theme-color-hover}#{$suffix} {
+//             &:hover {
+//                 @each $property, $value in $map-of-properties {
+//                     @if($property != "prefix" and $property != "suffix" and $property != "important") {
+//                         #{$property}: $value #{$important};
+//                     }
+//                 }
+//             }
+//         }
+
+//     }
+// }
+
+@include media-breakpoint-up(xxl) {}
+@include media-breakpoint-up(xl) {}
+@include media-breakpoint-up(lg) {}
+@include media-breakpoint-up(md) {}
+@include media-breakpoint-up(sm) {}

@@ -1,0 +1,130 @@
+$whatsapp-bg-light: #00b743;
+$whatsapp-bg-dark: #009b12;
+
+.whatsapp-form {
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+    transition: all 0.5s ease;
+    clip-path: circle(0% at 100% 100%);
+    box-shadow: 0 5px 15px 0 rgba($black, 0.25);
+    border-radius: $border-radius-sm;
+    overflow: hidden;
+    z-index: 999;
+
+    &.show {
+        opacity: 1;
+        pointer-events: initial;
+        user-select: initial;
+        clip-path: circle(175% at 100% 100%);
+    }
+
+    &-header {
+        background: linear-gradient(80deg, $whatsapp-bg-light, $whatsapp-bg-dark);
+    }
+
+    &-close {
+        color: $white !important;
+    }
+
+    &-wrapper {
+        transition: $transition-base;
+
+        &.hidden {
+            opacity: 0;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .bg-whatsapp {
+            background-color: $whatsapp-bg-dark;
+            color: $white;
+            transition: $transition-base;
+
+            @include media-hover {
+                background-color: $whatsapp-bg-light;
+            }
+        }
+    }
+}
+
+.btn.btn-whatsapp {
+    padding: 0.75rem !important;
+}
+
+.btn-whatsapp {
+    transition: $transition-base;
+    color: $white !important;
+    border-radius: $border-radius-pill;
+    padding: 0.75rem !important;
+    position: relative;
+    box-shadow: 0 4px 10px rgba($black, 0.35);
+    background: linear-gradient(80deg, $whatsapp-bg-light, $whatsapp-bg-dark);
+    border: none;
+    z-index: 999;
+
+    &.fixed {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        margin: 1rem;
+    }
+
+    &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(80deg, $whatsapp-bg-dark, $whatsapp-bg-light);
+        border-radius: $border-radius-pill;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        transition: $transition-base;
+    }
+
+    @include media-hover {
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    &:not(.active)::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: rgba($whatsapp-bg-light, 0.25);
+        border-radius: $border-radius-pill;
+        transition: $transition-base;
+        animation: bgScale 4s linear infinite;
+        z-index: -1;
+    }
+
+    &-anchor {
+        background-color: $whatsapp-bg-light;
+        padding: 0.25rem 0.5rem;
+        color: $white !important;
+        transition: $transition-base;
+        border-radius: $border-radius-sm;
+        text-align: center;
+
+        @include media-hover {
+            background-color: $whatsapp-bg-dark;
+        }
+    }
+}
+
+@keyframes bgScale {
+    70% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(2);
+    }
+}

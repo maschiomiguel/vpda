@@ -1,0 +1,556 @@
+// Fonte padrão removida - usar a fonte definida em _variables.scss
+
+// Classe para Barlow Semi Condensed
+.font-barlow {
+    font-family: 'Barlow Semi Condensed', Arial, Helvetica, sans-serif !important;
+}
+
+.font-inter {
+    font-family: 'Inter', Arial, Helvetica, sans-serif !important;
+}
+
+.font-gotham {
+    font-family: 'Gotham', Arial, Helvetica, sans-serif !important;
+}
+
+body main {
+    overflow-x: hidden;
+}
+
+@import "sections/banners";
+@import "sections/company";
+@import "sections/differentials";
+@import "sections/galleries";
+@import "sections/videos";
+@import "sections/solutions";
+@import "sections/brands";
+@import "sections/testimonials";
+@import "sections/cta";
+@import "sections/contact";
+
+.before-underline {
+    position: relative;
+    width: fit-content;
+
+    &:before {
+        content: "";
+        position: absolute;
+        width: 5rem;
+        height: 3px;
+        background-color: $dark;
+        bottom: -0.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+h2 {
+    @include linear-rfs(2.5rem, 3.5rem, lg, xxl);
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.upper-smalltitle {
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.text-editor {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.btn-whatsapp-default {
+    background-color: $primary;
+    color: white;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: $transition-base;
+
+    svg {
+        transition: $transition-base;
+    }
+
+    @include media-hover {
+        &:hover {
+            background-color: darken($primary, 5%);
+            color: white;
+            box-shadow: 2px 2px 0.1rem rgba(0, 0, 0, 0.1);
+
+            svg {
+                scale: 1.1;
+            }
+        }
+    }
+}
+
+.form-check-label {
+    color: white !important;
+
+    a {
+        color: white !important;
+        text-decoration: underline;
+    }
+}
+
+
+.floating-form {
+
+    position: absolute;
+    top: 55%;
+    right: 7.7%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+
+    width: clamp(380px, 30vw, 560px);
+    max-height: 85%;
+    padding: 1.4rem 1.6rem !important;
+
+    color: #fff;
+
+
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 12px;
+    border: solid 3px white;
+
+
+    flex-direction: column;
+    gap: .6rem;
+
+
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: white !important;
+        text-shadow: 2px 2px 4px $secondary;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .3px;
+        line-height: 1.1;
+        font-size: clamp(1.1rem, 1.2vw + .65rem, 1.2rem);
+    }
+
+
+    input:not([type="checkbox"]),
+    textarea,
+    select {
+        width: 100%;
+        background: $secondary !important;
+    
+        border: 1px solid rgba(255, 255, 255, .95) !important;
+        color: white !important;
+        border-radius: 12px;
+
+        padding: .5rem .9rem;
+    
+        margin: 0 0 .35rem 0;
+        font-size: clamp(.94rem, .8vw + .5rem, .8rem);
+        // Fonte herdada da configuração padrão (Urbanist)
+
+        box-shadow: none;
+        transition: border-color .2s, background-color .2s, box-shadow .2s;
+        text-align: start;
+
+        &::placeholder {
+            color: white !important;
+            opacity: .85;
+        }
+
+        &:focus {
+            background: transparent !important;
+            border-color: $white !important;
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+            color: #fff !important;
+        }
+    }
+
+    textarea {
+        min-height: 110px;
+        resize: vertical;
+    }
+
+
+    select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        padding-right: 2.2rem;
+        background-image: url('data:image/svg+xml;utf8,\
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="white">\
+        <path d="M7.41 8.58 12 13.17l4.59-4.59L18 10l-6 6-6-6z"/>\
+      </svg>');
+        background-repeat: no-repeat;
+        background-position: right .75rem center;
+
+        &:focus {
+            border-color: $white !important;
+            box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+        }
+
+        option {
+            background-color: $secondary;
+            color: white;
+        }
+    }
+
+
+    .form-check {
+        display: flex;
+        align-items: flex-start;
+        gap: .55rem;
+    }
+
+    .form-check-label,
+    label,
+    p,
+    strong {
+        color: white !important;
+        line-height: 1.25;
+        font-size: clamp(.84rem, .7vw + .42rem, .84rem);
+    }
+
+    span {
+        color: $secondary !important;
+        line-height: 1.25;
+        font-size: clamp(.84rem, .7vw + .42rem, .84rem);
+
+    }
+
+
+    .form-check-input {
+        &:checked {
+            background-color: $secondary !important;
+            border-color: $secondary !important;
+        }
+
+        &:focus {
+            border-color: $secondary;
+            box-shadow: 0 0 0 0.25rem rgba($secondary, 0.25);
+        }
+    }
+
+
+    @media (min-width: 992px) and (max-width: 1199px) {
+        right: 4%;
+        top: 17%;
+        transform: scale(0.9);
+        width: clamp(360px, 38vw, 480px);
+        padding: 1.15rem 1.1rem !important;
+    }
+
+
+    @media (min-width: 1200px) and (max-width: 1499px) {
+        right: 5.2%;
+        top: 17%;
+        transform: scale(0.9);
+        width: clamp(380px, 36vw, 500px);
+        padding: 1.2rem 1.2rem !important;
+        gap: 0 !important;
+
+        input:not([type="checkbox"]),
+        textarea,
+        select {
+            padding: .5rem .85rem;
+            margin-bottom: .3rem;
+        }
+
+        textarea {
+            min-height: 60px;
+        }
+    }
+
+
+    @media (min-width: 1500px) and (max-width: 1919px) {
+        right: 7%;
+        top: 17%;
+        transform: scale(0.95);
+        width: clamp(480px, 32vw, 620px);
+
+        textarea {
+            min-height: 120px;
+        }
+    }
+
+
+    @media (min-width: 1920px) {
+        right: 8.6%;
+        width: clamp(520px, 30vw, 700px);
+    }
+
+
+    @media (max-width: 991px) {
+        display: none;
+    }
+}
+
+
+
+.swiper-differentials {
+    .bg-light {
+        background: #e7e7e7;
+    }
+}
+
+.bg-gray {
+    background: #F1F1F1;
+}
+
+.projetos-ambientados {
+    .first-title {
+        font-weight: 800 !important;
+    }
+
+    .second-title {
+        color: #747577;
+        font-weight: 800 !important;
+    }
+
+    .btn {
+        width: 100%;
+        border-radius: 8px;
+        padding: 1rem 2rem !important;
+        font-size: 18px;
+    }
+
+    img {
+        border-radius: 20px;
+    }
+}
+
+#home-gallery {
+    .btn-section {
+        background: white !important;
+        color: $primary !important;
+        transition: $transition-base;
+
+        @include media-hover {
+            &:hover {
+                background: $primary !important;
+                color: white !important;
+            }
+        }
+    }
+}
+
+.fw-800 {
+    font-weight: 800 !important;
+}
+
+.thermal-roofing-section {
+    background-color: #f8f9fa;
+
+    .section-title {
+        font-size: 2.2rem;
+        line-height: 1.2;
+
+        @include media-breakpoint-down(md) {
+            font-size: 1.8rem;
+        }
+
+        @include media-breakpoint-up(xxl) {
+            font-size: 3.2rem;
+        }
+    }
+
+    .text-green {
+        color: #4a7c59 !important;
+    }
+
+    .feature-block {
+        h5 {
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+
+            @include media-breakpoint-up(xxl) {
+                font-size: 1.3rem;
+            }
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+
+            @include media-breakpoint-up(xxl) {
+                font-size: 1.1rem;
+            }
+        }
+    }
+
+    .finish-circle,
+    .color-circle {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        border: 2px solid #ddd;
+    }
+
+    .finish-options,
+    .color-options {
+
+        .finish-option,
+        .color-option {
+            font-size: 0.9rem;
+
+            @include media-breakpoint-up(xxl) {
+                font-size: 1.1rem;
+            }
+
+            span {
+                white-space: nowrap;
+            }
+        }
+    }
+
+    .cta-section {
+        h4 {
+            font-size: 1.4rem;
+            line-height: 1.3;
+
+            @include media-breakpoint-up(xxl) {
+                font-size: 1.8rem;
+            }
+
+            @include media-breakpoint-down(md) {
+                font-size: 1.2rem;
+            }
+        }
+
+    }
+
+    .thermal-image-wrapper {
+        img {
+            max-width: 100%;
+            height: auto;
+
+            @include media-breakpoint-down(lg) {
+                margin-top: 2rem;
+            }
+        }
+    }
+}
+
+.h-500 {
+    @include media-breakpoint-down(xl) {
+        max-height: 500px;
+    }
+}
+
+.bg-differentials {
+    background: linear-gradient(to top, rgba(0, 63, 29, 1), rgba(0, 165, 77, 1));
+}
+
+.btn-form {
+    display: flex;
+    gap: 1.5rem;
+    background: white !important;
+    border: none !important;
+    border-radius: 100px;
+    color: $secondary !important;
+    font-weight: 500;
+    padding: 0.3rem .8rem;
+    transition: all 0.3s ease;
+    position: relative;
+
+    // Estilo para o span que contém texto + ícone
+    .d-flex {
+        position: relative;
+
+        // Borda vertical entre texto e ícone
+        &::after {
+            content: '';
+            position: absolute;
+            right: -1rem; // 20px (largura SVG) + 6px (metade do gap-2)
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 18px; // Altura fixa para melhor controle
+            background-color: $secondary !important;
+        }
+    }
+
+    &:active,
+    &:focus {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #fff;
+        color: #fff;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
+    }
+
+    &:disabled {
+        background: transparent;
+        border-color: rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.5);
+        cursor: not-allowed;
+
+        .d-flex::after {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    @include media-hover {
+        &:hover {
+            background: $secondary !important;
+            // border-color: white !important;
+            color: white !important;
+
+            svg {
+                path {
+                    fill: white !important;
+                }
+            }
+
+            .d-flex {
+                color: white !important;
+
+                &::after {
+                    background-color: white !important;
+                }
+            }
+
+            span {
+                color: white !important;
+            }
+        }
+    }
+}
+
+.btn-cta {
+    background: $primary;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-width: 280px;
+
+    @include media-hover {
+        &:hover {
+            transform: translateY(-2px);
+            color: $primary !important;
+            background: white !important;
+        }
+    }
+}

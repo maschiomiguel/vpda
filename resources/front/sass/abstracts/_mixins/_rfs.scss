@@ -1,0 +1,4 @@
+@mixin linear-rfs($min, $max, $vw-min, $vw-max, $propriedade: "font-size") {
+    #{$propriedade}: linear-calc($min, $max, $vw-min, $vw-max);
+    #{$propriedade}: linear-clamp($min, $max, $vw-min, $vw-max);
+}

@@ -1,0 +1,12 @@
+%reset-offcanvas {
+    position: relative !important;
+    visibility: visible !important;
+    display: block !important;
+    opacity: 1 !important;
+    transform: none;
+    border: none;
+    background-color: rgba($color: $white, $alpha: 0);
+    height: 100%;
+    width: unset;
+    transition: none;
+}
