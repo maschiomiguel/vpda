@@ -31,6 +31,22 @@
             }
         }
     }
+
+    // Hover para links de contato e redes sociais
+    a {
+        transition: all 0.3s ease;
+
+        &:hover {
+            color: $primary !important;
+            transform: translateX(4px);
+
+            svg {
+                path {
+                    stroke: $primary;
+                }
+            }
+        }
+    }
 }
 
 .button-fixed {

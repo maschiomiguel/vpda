@@ -7,7 +7,7 @@
                 {{-- Logo e Tagline --}}
                 <div class="col-12 col-lg-4">
                     <a class="d-inline-block mb-3" href="{{ route_lang('home') }}" title="Página principal">
-                        <img style="max-width: 200px;" src="{{ app(\App\Services\SiteService::class)->getSiteLogo() }}"
+                        <img style="max-width: 100px;" src="{{ app(\App\Services\SiteService::class)->getSiteLogo() }}"
                             alt="Logo {{ config('app.name') }}" title="Logo {{ config('app.name') }}">
                     </a>
                     <p class="text-muted mb-0" style="color: #6B7280;">Transform your Instagram presence with data-driven content strategy.</p>
