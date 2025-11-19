@@ -4,14 +4,10 @@
 <head>
     <x-custom-code type="head" />
 
-    @if (strpos(Request::fullUrl(), 'projetos.ellite.local') === false)
-        {{-- GTM AQUI --}}
-    @endif
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Agência Ellite Digital">
+    <meta name="author" content="Miguel Maschio">
 
     {{-- Favicons --}}
     <link rel="icon" type="image/png" href="{{ asset('front/images/favicons/favicon-48x48.png') }}" sizes="48x48" />

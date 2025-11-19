@@ -238,9 +238,6 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Modules\Table\TableProvider::class,
 
-        /*
-         * Ellite Service Providers...
-         */
         Modules\Banners\BannersServiceProvider::class,
         Modules\PageHome\PageHomeServiceProvider::class,
         Modules\Contact\ContactServiceProvider::class,

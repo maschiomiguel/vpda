@@ -37,7 +37,7 @@ class PasswordRecoveryController extends Controller
 
             if (!$user->email) {
                 throw ValidationException::withMessages([
-                    'username_or_email' => __('O usuário inserido não possui e-mail. Por favor, entre em contato com a Ellite Digital.'),
+                    'username_or_email' => __('O usuário inserido não possui e-mail. Por favor, entre em contato com o responsável pelo sistema.'),
                 ]);
             }
 
@@ -59,7 +59,7 @@ class PasswordRecoveryController extends Controller
                 }
 
                 throw ValidationException::withMessages([
-                    'username_or_email' => __('Falha ao enviar e-mail de recuperação. Por favor, entre em contato com a Ellite Digital.'),
+                    'username_or_email' => __('Falha ao enviar e-mail de recuperação. Por favor, entre em contato com o responsável pelo sistema.'),
                 ]);
             }
         }
@@ -72,7 +72,7 @@ class PasswordRecoveryController extends Controller
         if (request()->method() === 'POST') {
             if (!request()->hasValidSignature()) {
                 throw ValidationException::withMessages([
-                    'password' => __('Erro: esse link expirou ou é inválido. Por favor, tente gerar um novo link. Se o problema persistir, entre em contato com a Ellite Digital.'),
+                    'password' => __('Erro: esse link expirou ou é inválido. Por favor, tente gerar um novo link. Se o problema persistir, entre em contato com o responsável pelo sistema.'),
                 ]);
                 // abort(401);
             }

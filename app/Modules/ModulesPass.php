@@ -10,7 +10,6 @@ class ModulesPass
 	/**
 	 * Url base da API de login
 	 */
-	public $base_url = 'https://www.ellitedigital.com.br/pass_cert';
 
 	/**
 	 * Código do cliente cadastrado no sistema

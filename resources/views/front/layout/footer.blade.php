@@ -95,9 +95,6 @@
 {{-- Site fixed button --}}
 {{-- <x-button-fixed /> --}}
 
-@if (strpos(Request::fullUrl(), 'projetos.ellite.local') === false)
-    {{-- GTM AQUI --}}
-@endif
 
 {{-- Jquery --}}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"

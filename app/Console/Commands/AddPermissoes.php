@@ -19,7 +19,7 @@ class AddPermissoes extends Command
      *
      * @var string
      */
-    protected $description = 'Adiciona todas as permissões para o usuário da Ellite';
+    protected $description = 'Adiciona todas as permissões para o usuário da Admin';
 
     /**
      * Execute the console command.
