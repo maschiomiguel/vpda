@@ -18,7 +18,7 @@
                 @foreach ($videos->get() as $video)
                     @if ($video->image->count())
                         <div class="video-reels-slide">
-                            <div class="video-reel-card">
+                            <div class="video-reel-card" style="transition: transform 0.3s ease;">
                                 <div class="video-reel-container">
                                     <video 
                                         src="{{ $video->image->first()?->url() }}" 
@@ -62,39 +62,91 @@
             
             if (!wrapper || originalSlides.length === 0) return;
 
+            let currentPosition = 0;
+            const normalSpeed = 1;
+            const slowSpeed = 0.2;
+            let currentSpeed = normalSpeed;
+            let hoverCount = 0;
+            const slideWidth = originalSlides[0].offsetWidth;
+            const gap = 24;
+            const totalWidth = (slideWidth + gap) * originalSlides.length;
+
+            // Adicionar eventos de hover ANTES de clonar
+            originalSlides.forEach(slide => {
+                const card = slide.querySelector('.video-reel-card');
+                
+                slide.addEventListener('mouseenter', () => {
+                    hoverCount++;
+                    currentSpeed = slowSpeed;
+                    card.style.transform = 'scale(1.1)';
+                    card.style.zIndex = '10';
+                });
+                
+                slide.addEventListener('mouseleave', () => {
+                    hoverCount--;
+                    if (hoverCount <= 0) {
+                        hoverCount = 0;
+                        currentSpeed = normalSpeed;
+                    }
+                    card.style.transform = 'scale(1)';
+                    card.style.zIndex = '1';
+                });
+            });
+
             // Duplicar slides suficientes para criar loop suave
             const timesToDuplicate = Math.min(3, Math.ceil(10 / originalSlides.length));
             
             for (let i = 0; i < timesToDuplicate; i++) {
                 originalSlides.forEach(slide => {
                     const clone = slide.cloneNode(true);
+                    const cloneCard = clone.querySelector('.video-reel-card');
+                    
+                    clone.addEventListener('mouseenter', () => {
+                        hoverCount++;
+                        currentSpeed = slowSpeed;
+                        cloneCard.style.transform = 'scale(1.1)';
+                        cloneCard.style.zIndex = '10';
+                    });
+                    
+                    clone.addEventListener('mouseleave', () => {
+                        hoverCount--;
+                        if (hoverCount <= 0) {
+                            hoverCount = 0;
+                            currentSpeed = normalSpeed;
+                        }
+                        cloneCard.style.transform = 'scale(1)';
+                        cloneCard.style.zIndex = '1';
+                    });
+                    
                     wrapper.appendChild(clone);
                 });
             }
-
-            let currentPosition = 0;
-            const speed = 1;
-            const slideWidth = originalSlides[0].offsetWidth;
-            const gap = 24;
-            const totalWidth = (slideWidth + gap) * originalSlides.length;
 
             // Desabilitar qualquer interação que possa afetar a velocidade
             wrapper.style.pointerEvents = 'auto';
             wrapper.style.userSelect = 'none';
 
-            function autoScroll() {
-                currentPosition -= speed;
+            let lastTime = performance.now();
+            const targetFPS = 60;
+            const frameTime = 1000 / targetFPS;
+
+            function autoScroll(currentTime) {
+                const deltaTime = currentTime - lastTime;
+                const speedMultiplier = deltaTime / frameTime;
+                
+                currentPosition -= currentSpeed * speedMultiplier;
 
                 if (Math.abs(currentPosition) >= totalWidth) {
                     currentPosition = 0;
                 }
 
                 wrapper.style.transform = `translateX(${currentPosition}px)`;
+                lastTime = currentTime;
                 requestAnimationFrame(autoScroll);
             }
 
             wrapper.style.transition = 'none';
-            autoScroll();
+            requestAnimationFrame(autoScroll);
         });
     </script>
     @endpush

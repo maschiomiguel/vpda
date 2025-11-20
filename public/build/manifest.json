@@ -10,7 +10,7 @@
     "src": "resources/front/js/vendors/bootstrap.bundle.min.js"
   },
   "resources/front/sass/main.scss": {
-    "file": "assets/main-7258db89.css",
+    "file": "assets/main-2f638542.css",
     "isEntry": true,
     "src": "resources/front/sass/main.scss"
   },

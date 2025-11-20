@@ -51,7 +51,7 @@
                 @endforeach
             </div>
         </div>
-        <div class="separator-container text-center my-4">
+        <div class="separator-container text-center my-1">
             <svg width="80%" height="2" viewBox="0 0 100 2" preserveAspectRatio="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <line x1="0" y1="1" x2="100" y2="1" stroke="#e0e0e0" stroke-width="2"
@@ -111,8 +111,15 @@
                     });
                 });
 
-                function autoScroll() {
-                    currentPosition += currentSpeed;
+                let lastTime = performance.now();
+                const targetFPS = 60;
+                const frameTime = 1000 / targetFPS;
+
+                function autoScroll(currentTime) {
+                    const deltaTime = currentTime - lastTime;
+                    const speedMultiplier = deltaTime / frameTime;
+                    
+                    currentPosition += currentSpeed * speedMultiplier;
 
                     // Quando chegar em 0, resetar para o início negativo
                     if (currentPosition >= 0) {
@@ -120,11 +127,12 @@
                     }
 
                     wrapper.style.transform = `translateX(${currentPosition}px)`;
+                    lastTime = currentTime;
                     requestAnimationFrame(autoScroll);
                 }
 
                 wrapper.style.transition = 'none';
-                autoScroll();
+                requestAnimationFrame(autoScroll);
             });
         </script>
     @endpush
