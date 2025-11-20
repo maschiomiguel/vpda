@@ -49,6 +49,8 @@
                             $instagramUsername = $contact->getSocial('instagram_username');
                             $facebook = $contact->getSocial('facebook');
                             $facebookUsername = $contact->getSocial('facebook_username');
+                            $twitter = $contact->getSocial('twitter');
+                            $twitterUsername = $contact->getSocial('twitter_username');
                             $linkedin = $contact->getSocial('linkedin');
                             $linkedinUsername = $contact->getSocial('linkedin_username');
                         @endphp
@@ -71,6 +73,13 @@
                             <a href="{{ $linkedin }}" target="_blank" class="text-decoration-none d-flex align-items-center gap-0-50" style="color: #6B7280;">
                                 <x-icons.linkedin width="20" height="20" />
                                 <span>{{ $linkedinUsername }}</span>
+                            </a>
+                        @endif
+
+                        @if ($twitter && $twitterUsername)
+                            <a href="{{ $twitter }}" target="_blank" class="text-decoration-none d-flex align-items-center gap-0-50" style="color: #6B7280;">
+                                <x-icons.twitter width="20" height="20" />
+                                <span>{{ $twitterUsername }}</span>
                             </a>
                         @endif
                     </div>

@@ -10,12 +10,12 @@
     "src": "resources/front/js/vendors/bootstrap.bundle.min.js"
   },
   "resources/front/sass/main.scss": {
-    "file": "assets/main-03f9b4e2.css",
+    "file": "assets/main-7258db89.css",
     "isEntry": true,
     "src": "resources/front/sass/main.scss"
   },
   "resources/front/sass/vendors/bootstrap/bootstrap.scss": {
-    "file": "assets/bootstrap-cc2f3a40.css",
+    "file": "assets/bootstrap-88d9664c.css",
     "isEntry": true,
     "src": "resources/front/sass/vendors/bootstrap/bootstrap.scss"
   },

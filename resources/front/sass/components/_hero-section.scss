@@ -30,7 +30,7 @@
 }
 
 .hero-title-gradient {
-    background: linear-gradient(90deg, #33ccff 0%, #9966ff 100%);
+    background: linear-gradient(0deg, $secondary 0%, $primary 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -94,7 +94,7 @@
 }
 
 .hero-btn-primary {
-    background: linear-gradient(90deg, #33ccff 0%, #9966ff 100%);
+    background: linear-gradient(90deg, $secondary 0%, $primary 100%);
     color: white;
     box-shadow: 0 10px 30px rgba(51, 204, 255, 0.3);
 

@@ -7,7 +7,7 @@
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-title fw-bold mb-1">
-                    What We <span class="text-gradient">Deliver</span>
+                    Our <span class="text-gradient">Process</span>
                 </h2>
                 <p class="section-subtitle text-muted">
                     Complete Instagram performance solutions tailored to your brand

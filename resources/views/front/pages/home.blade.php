@@ -6,13 +6,13 @@
 
         <x-hero-section :page="$page" />
         
-        <x-modules-differentials::differentials :page="$page" />
-        
-        <x-company-section :page="$page" />
-
         <x-modules-galleries::gallery :page="$page" />
 
         <x-modules-videos::video :page="$page" />
+        
+        <x-modules-differentials::differentials :page="$page" />
+        
+        <x-company-section :page="$page" />
 
         <x-modules-questions::questions :page="$page" />
 

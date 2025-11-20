@@ -54,6 +54,32 @@ class ContactService
         return '';
     }
 
+    public function getSocialUsername(string $social)
+    {
+        if (empty($this->page->social_networks)) {
+            return '';
+        }
+
+        $socials = $this->page->social_networks[0];
+
+        $key = $social . '_username';
+
+        if (array_key_exists($key, $socials)) {
+            return $socials[$key];
+        }
+
+        return '';
+    }
+
+    public function getSocials()
+    {
+        if (empty($this->page->social_networks)) {
+            return [];
+        }
+
+        return $this->page->social_networks[0];
+    }
+
     public function getEmails()
     {
         if (empty($this->page->emails)) {

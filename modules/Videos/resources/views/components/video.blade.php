@@ -1,8 +1,8 @@
 @props(['page'])
 
 @if ($videos->count())
-    <section class="py-5 instagram-video" id="instagram-video">
-        <div class="container">
+    <section class="pb-3 instagram-video" id="instagram-video">
+        {{-- <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-title fw-bold mb-3">
                     Our <span class="text-gradient">Instagram Videos</span>
@@ -11,7 +11,7 @@
                     Scroll-stopping visuals that command attention and drive engagement
                 </p>
             </div>
-        </div>
+        </div> --}}
 
         <div class="video-reels-carousel">
             <div class="video-reels-wrapper">
@@ -73,7 +73,7 @@
             }
 
             let currentPosition = 0;
-            const speed = 2;
+            const speed = 1;
             const slideWidth = originalSlides[0].offsetWidth;
             const gap = 24;
             const totalWidth = (slideWidth + gap) * originalSlides.length;

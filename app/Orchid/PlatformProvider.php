@@ -35,9 +35,9 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('menu')
                 ->route('platform.pageshome.edit'),
 
-            // Menu::make('Depoimentos')
-            //     ->route('platform.testimonials.list')
-            //     ->permission('platform.testimonials.list'),
+            Menu::make('Depoimentos')
+                ->route('platform.testimonials.list')
+                ->permission('platform.testimonials.list'),
 
             Menu::make('Diferenciais')
                 ->icon('layers')
