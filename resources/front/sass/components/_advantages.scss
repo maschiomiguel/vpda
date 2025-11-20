@@ -1,0 +1,98 @@
+// Advantages Section Styles
+
+.advantages-section {
+    .advantages-title {
+        font-size: 2.5rem;
+        color: #1a1a2e;
+    }
+
+    .advantage-card {
+        border-radius: 20px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .advantage-image-wrapper {
+            .advantage-image-container {
+                width: 100%;
+                max-width: 350px;
+                height: 200px;
+                border-radius: 15px;
+                overflow: hidden;
+
+                .advantage-image {
+                    max-width: 100%;
+                    max-height: 100%;
+                    object-fit: contain;
+                }
+            }
+        }
+
+        .advantage-card-title {
+            color: #1a1a2e;
+            font-size: 1.5rem;
+        }
+
+        .advantage-card-text {
+            line-height: 1.6;
+
+            p {
+                margin-bottom: 0.5rem;
+                
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .advantage-cta-btn {
+        font-size: 1.1rem;
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        .advantage-cta-arrow {
+            margin-left: 8px;
+            vertical-align: middle;
+            transition: transform 0.2s ease;
+        }
+
+        &:hover .advantage-cta-arrow {
+            transform: translateX(5px);
+        }
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    .advantages-section {
+        .advantages-title {
+            font-size: 2rem;
+        }
+
+        .advantage-card {
+            .advantage-image-wrapper {
+                .advantage-image-container {
+                    max-width: 280px;
+                    height: 160px;
+                }
+            }
+
+            .advantage-card-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        .advantage-cta-btn {
+            font-size: 1rem;
+            padding: 0.75rem 2rem !important;
+        }
+    }
+}

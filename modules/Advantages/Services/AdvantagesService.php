@@ -15,9 +15,9 @@ class AdvantagesService
             ->orderBy('order')
             ->paginate($quantity);
         
-        $advantages = $advantages->filter(
-            fn($b) => $b->image->count() > 0,
-        );
+        // $advantages = $advantages->filter(
+        //     fn($b) => $b->image->count() > 0,
+        // );
         
         return $advantages;
     }

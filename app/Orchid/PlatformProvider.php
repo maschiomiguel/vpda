@@ -44,6 +44,11 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.differentials.list')
                 ->permission('platform.differentials.list'),
 
+            Menu::make('Vantagens do instagram')
+                ->icon('badge')
+                ->route('platform.advantages.list')
+                ->permission('platform.advantages.list'),
+
             Menu::make('Posts do Instagram')
                 ->icon('picture')
                 ->route('platform.galleries.list')

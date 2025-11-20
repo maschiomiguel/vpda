@@ -19,6 +19,7 @@ class Advantage extends ModulesModel implements TranslatableContract
         'name',
         'active',
         'order',
+        'color_code',
     ];
 
     public $translatedAttributes = [

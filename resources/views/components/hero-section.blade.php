@@ -35,7 +35,7 @@
                         clip-rule="evenodd" />
                 </svg>
             </a>
-            <a href="#portfolio" class="hero-btn hero-btn-secondary">
+            <a href="#instagram-gallery" class="hero-btn hero-btn-secondary">
                 <svg class="hero-instagram-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                     fill="currentColor">
                     <path

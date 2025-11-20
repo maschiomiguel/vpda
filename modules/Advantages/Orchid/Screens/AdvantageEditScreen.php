@@ -11,6 +11,8 @@ use Orchid\Screen\Fields\Input;
 use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Upload;
 use App\Modules\ModulesScreen;
+use App\Orchid\Fields\TinyMCE;
+use Orchid\Screen\Fields\TextArea;
 
 class AdvantageEditScreen extends ModulesScreen
 {
@@ -82,11 +84,19 @@ class AdvantageEditScreen extends ModulesScreen
                         ->maxlength(150)
                         ->canSee($language->code == 'pt'),
 
-                    Input::make("model.$locale.text_1")
+                    TinyMCE::make("model.$locale.text_1")
                         ->type('text')
                         ->title('Texto')
                         ->placeholder('Texto')
                         ->value($this->model->translate($locale)?->text_1),
+
+                    Input::make('model.color_code')
+                        ->type('color')
+                        ->title("Cor de fundo do card")
+                        ->help("Selecione a cor de destaque para essa vantagem.")
+                        ->canSee($language->code == 'pt')
+                        ->value($this->model->color_code ?? '#000000')
+                        ->style('max-width: 50px; padding: 0;'),
 
                     Upload::make('model.attachment')
                         ->groups('image_advantage')
@@ -98,7 +108,6 @@ class AdvantageEditScreen extends ModulesScreen
                         ->multiple(false)
                         ->maxFileSize(1)
                         ->title("Imagem")
-                        ->help(screens()->getImageHelp('advantage'))
                         ->canSee($language->code == 'pt')
                         ->targetId(),
                 ]),

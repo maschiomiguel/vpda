@@ -248,6 +248,7 @@ return [
         Modules\Links\LinksServiceProvider::class,
         Modules\Videos\VideosServiceProvider::class,
         Modules\Questions\QuestionsServiceProvider::class,
+        Modules\Advantages\AdvantagesServiceProvider::class,
     ],
 
     /*
